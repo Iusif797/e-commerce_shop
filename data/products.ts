@@ -1,0 +1,68 @@
+import { Product } from '../types';
+
+export const products: Product[] = [
+  {
+    id: '1',
+    name: 'Classic Leather Loafer',
+    subcategory: 'Men\'s Shoes',
+    category: 'shoes',
+    price: 395,
+    image: '/images/products/loafer-black.svg',
+  },
+  {
+    id: '2',
+    name: 'Elegant Heeled Sandal',
+    subcategory: 'Women\'s Shoes',
+    category: 'shoes',
+    price: 280,
+    image: '/images/products/sandal-beige.svg',
+  },
+  {
+    id: '3',
+    name: 'Signature Baseball Cap',
+    subcategory: 'Men\'s Headwear',
+    category: 'caps',
+    price: 120,
+    image: '/images/products/cap-black.svg',
+  },
+  {
+    id: '4',
+    name: 'Silk Blend Cap',
+    subcategory: 'Women\'s Headwear',
+    category: 'caps',
+    price: 150,
+    image: '/images/products/cap-beige.svg',
+  },
+  {
+    id: '5',
+    name: 'Classic H Buckle Belt',
+    subcategory: 'Men\'s Accessories',
+    category: 'belts',
+    price: 280,
+    image: '/images/products/belt-black.svg',
+  },
+  {
+    id: '6',
+    name: 'Reversible Leather Belt',
+    subcategory: 'Women\'s Accessories',
+    category: 'belts',
+    price: 260,
+    image: '/images/products/belt-beige.svg',
+  },
+  {
+    id: '7',
+    name: 'Suede Derby Shoes',
+    subcategory: 'Men\'s Shoes',
+    category: 'shoes',
+    price: 330,
+    image: '/images/products/derby-black.svg',
+  },
+  {
+    id: '8',
+    name: 'Strappy Leather Sandals',
+    subcategory: 'Women\'s Shoes',
+    category: 'shoes',
+    price: 250,
+    image: '/images/products/sandal-beige-2.svg',
+  },
+]; 
