@@ -11,13 +11,13 @@ const FeaturedCategories = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {/* Footwear Card */}
           <div className="bg-white rounded shadow-sm hover:shadow-md transition-shadow duration-300 p-6 sm:p-8">
-            <div className="flex justify-center mb-4 sm:mb-6">
+            <div className="flex justify-center mb-4 sm:mb-6 h-48 relative">
               <Image
-                src="/images/products/loafer-black.svg"
+                src="/images/products/obuv.jpg"
                 alt="Premium Footwear"
-                width={70}
-                height={35}
-                className="h-auto sm:w-[80px]"
+                fill
+                sizes="(max-width: 768px) 100%, 33vw"
+                className="object-contain"
               />
             </div>
             <h3 className="text-lg sm:text-xl font-medium text-center mb-2">Premium Footwear</h3>
@@ -36,13 +36,13 @@ const FeaturedCategories = () => {
           
           {/* Headwear Card */}
           <div className="bg-white rounded shadow-sm hover:shadow-md transition-shadow duration-300 p-6 sm:p-8">
-            <div className="flex justify-center mb-4 sm:mb-6">
+            <div className="flex justify-center mb-4 sm:mb-6 h-48 relative">
               <Image
-                src="/images/products/cap-black.svg"
+                src="/images/products/kepka.jpg"
                 alt="Elegant Headwear"
-                width={70}
-                height={35}
-                className="h-auto sm:w-[80px]"
+                fill
+                sizes="(max-width: 768px) 100%, 33vw"
+                className="object-contain"
               />
             </div>
             <h3 className="text-lg sm:text-xl font-medium text-center mb-2">Elegant Headwear</h3>
@@ -61,13 +61,13 @@ const FeaturedCategories = () => {
           
           {/* Belts Card */}
           <div className="bg-white rounded shadow-sm hover:shadow-md transition-shadow duration-300 p-6 sm:p-8">
-            <div className="flex justify-center mb-4 sm:mb-6">
+            <div className="flex justify-center mb-4 sm:mb-6 h-48 relative">
               <Image
-                src="/images/products/belt-black.svg"
+                src="/images/products/remen.jpg"
                 alt="Luxury Belts"
-                width={70}
-                height={35}
-                className="h-auto sm:w-[80px]"
+                fill
+                sizes="(max-width: 768px) 100%, 33vw"
+                className="object-contain"
               />
             </div>
             <h3 className="text-lg sm:text-xl font-medium text-center mb-2">Luxury Belts</h3>

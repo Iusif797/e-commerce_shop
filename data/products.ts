@@ -7,7 +7,7 @@ export const products: Product[] = [
     subcategory: 'Men\'s Shoes',
     category: 'shoes',
     price: 395,
-    image: '/images/products/loafer-black.svg',
+    image: '/images/products/obuv.jpg',
   },
   {
     id: '2',
@@ -15,7 +15,7 @@ export const products: Product[] = [
     subcategory: 'Women\'s Shoes',
     category: 'shoes',
     price: 280,
-    image: '/images/products/sandal-beige.svg',
+    image: '/images/products/obuv.jpg',
   },
   {
     id: '3',
@@ -23,7 +23,7 @@ export const products: Product[] = [
     subcategory: 'Men\'s Headwear',
     category: 'caps',
     price: 120,
-    image: '/images/products/cap-black.svg',
+    image: '/images/products/kepka.jpg',
   },
   {
     id: '4',
@@ -31,7 +31,7 @@ export const products: Product[] = [
     subcategory: 'Women\'s Headwear',
     category: 'caps',
     price: 150,
-    image: '/images/products/cap-beige.svg',
+    image: '/images/products/kepka.jpg',
   },
   {
     id: '5',
@@ -39,7 +39,7 @@ export const products: Product[] = [
     subcategory: 'Men\'s Accessories',
     category: 'belts',
     price: 280,
-    image: '/images/products/belt-black.svg',
+    image: '/images/products/remen.jpg',
   },
   {
     id: '6',
@@ -47,7 +47,7 @@ export const products: Product[] = [
     subcategory: 'Women\'s Accessories',
     category: 'belts',
     price: 260,
-    image: '/images/products/belt-beige.svg',
+    image: '/images/products/remen.jpg',
   },
   {
     id: '7',
@@ -55,7 +55,7 @@ export const products: Product[] = [
     subcategory: 'Men\'s Shoes',
     category: 'shoes',
     price: 330,
-    image: '/images/products/derby-black.svg',
+    image: '/images/products/obuv.jpg',
   },
   {
     id: '8',
@@ -63,6 +63,6 @@ export const products: Product[] = [
     subcategory: 'Women\'s Shoes',
     category: 'shoes',
     price: 250,
-    image: '/images/products/sandal-beige-2.svg',
+    image: '/images/products/obuv.jpg',
   },
 ]; 
