@@ -25,17 +25,22 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
   return (
     <div className="py-12 sm:py-16">
       {/* Category Tabs */}
-      <div className="mb-8 sm:mb-12">
-        <ul className="flex flex-wrap justify-center gap-2 sm:gap-4">
+      <div className="mb-10 sm:mb-16">
+        <ul className="flex flex-wrap justify-center gap-3 sm:gap-5">
           {categories.map((category) => (
             <li key={category.id}>
               <button
                 onClick={() => setActiveCategory(category.id)}
-                className={`px-4 sm:px-6 py-2 text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 ${
+                className={`px-5 sm:px-8 py-2.5 text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 rounded-md shadow-sm transform ${
                   activeCategory === category.id
-                    ? 'bg-luxe-dark text-white'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    ? 'bg-luxe-dark text-white translate-y-0 scale-105 shadow-md'
+                    : 'bg-white text-luxe-dark border border-gray-200 hover:bg-gray-50 hover:-translate-y-0.5'
                 }`}
+                style={{ 
+                  boxShadow: activeCategory === category.id 
+                    ? '0 4px 6px rgba(0, 0, 0, 0.1)' 
+                    : '0 1px 3px rgba(0, 0, 0, 0.05)'
+                }}
               >
                 {category.label}
               </button>
@@ -72,7 +77,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
         <div className="flex justify-center mt-10 sm:mt-16">
           <button 
             onClick={() => setActiveCategory('all')}
-            className="bg-luxe-dark text-white px-6 sm:px-8 py-2.5 sm:py-3 uppercase text-xs sm:text-sm tracking-wider hover:bg-opacity-90 transition-all rounded"
+            className="bg-luxe-dark text-white px-6 sm:px-8 py-2.5 sm:py-3 uppercase text-xs sm:text-sm tracking-wider hover:bg-opacity-90 transition-all rounded-md shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
           >
             VIEW ALL PRODUCTS
           </button>

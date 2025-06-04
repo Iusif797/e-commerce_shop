@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useCart } from '../contexts/CartContext';
+import { useUser } from '../contexts/UserContext';
 import SearchBar from './SearchBar';
 
 const Header = () => {
@@ -11,6 +13,7 @@ const Header = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const router = useRouter();
   const { getCartCount, cartItems } = useCart();
+  const { userData, isLoggedIn } = useUser();
 
   const handleTabChange = (tab: 'men' | 'women') => {
     setActiveTab(tab);
@@ -94,10 +97,31 @@ const Header = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </button>
-          <Link href="/account" aria-label="Account" className="hover:opacity-70 transition-opacity">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-            </svg>
+          <Link 
+            href="/profile" 
+            aria-label="Profile" 
+            className="relative hover:opacity-90 transition-all group"
+          >
+            <div className="w-7 h-7 rounded-full overflow-hidden border-2 border-gray-200 group-hover:border-luxe-dark transition-all duration-300 transform group-hover:scale-110">
+              {isLoggedIn && userData.avatarUrl ? (
+                <div className="relative w-full h-full">
+                  <Image 
+                    src={userData.avatarUrl}
+                    alt={userData.name || "User avatar"}
+                    fill
+                    sizes="28px"
+                    className="object-cover"
+                  />
+                </div>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-full w-full p-0.5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              )}
+            </div>
+            {isLoggedIn && (
+              <span className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 rounded-full border border-white"></span>
+            )}
           </Link>
           <Link href="/cart" aria-label="Cart" className="relative hover:opacity-70 transition-opacity">
             <svg 
@@ -157,6 +181,30 @@ const Header = () => {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 About
+              </Link>
+              <Link 
+                href="/profile" 
+                className="flex items-center py-2 uppercase text-sm tracking-wider"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <div className="w-5 h-5 mr-2 rounded-full overflow-hidden">
+                  {isLoggedIn && userData.avatarUrl ? (
+                    <div className="relative w-full h-full">
+                      <Image 
+                        src={userData.avatarUrl}
+                        alt={userData.name || "User avatar"}
+                        fill
+                        sizes="20px"
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-full w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  )}
+                </div>
+                Profile
               </Link>
               <button 
                 onClick={() => {
