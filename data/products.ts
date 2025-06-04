@@ -39,7 +39,7 @@ export const products: Product[] = [
     subcategory: 'Men\'s Accessories',
     category: 'belts',
     price: 280,
-    image: '/images/products/remen.jpg',
+    image: '/images/products/remen-1.jpg',
   },
   {
     id: '6',
@@ -47,7 +47,7 @@ export const products: Product[] = [
     subcategory: 'Women\'s Accessories',
     category: 'belts',
     price: 260,
-    image: '/images/products/remen.jpg',
+    image: '/images/products/remen-2.jpg',
   },
   {
     id: '7',

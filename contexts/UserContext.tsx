@@ -22,7 +22,7 @@ const defaultUserData: UserData = {
   email: '',
   phone: '',
   address: '',
-  avatarUrl: '/images/products/avatar-profile.jpg',
+  avatarUrl: '/images/products/avatar-profile-1.jpg',
 };
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
