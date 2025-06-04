@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useCart } from '../contexts/CartContext';
+import SearchBar from './SearchBar';
 
 const Header = () => {
   const [activeTab, setActiveTab] = useState<'men' | 'women'>('women');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [cartPulse, setCartPulse] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const router = useRouter();
+  const { getCartCount, cartItems } = useCart();
 
   const handleTabChange = (tab: 'men' | 'women') => {
     setActiveTab(tab);
@@ -16,8 +21,25 @@ const Header = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
+  const cartItemsCount = getCartCount();
+
+  // Отслеживаем изменения в корзине для анимации
+  useEffect(() => {
+    if (cartItems.length > 0) {
+      setCartPulse(true);
+      const timer = setTimeout(() => {
+        setCartPulse(false);
+      }, 500); // Длительность анимации
+      
+      return () => clearTimeout(timer);
+    }
+  }, [cartItems]);
+
   return (
     <header className="w-full relative">
+      {/* Search Bar */}
+      <SearchBar isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
+
       {/* Main Header */}
       <div className="container mx-auto px-4 py-6 flex items-center justify-between">
         {/* Mobile Menu Button */}
@@ -63,7 +85,11 @@ const Header = () => {
 
         {/* Icons */}
         <div className="flex items-center space-x-4">
-          <button aria-label="Search" className="hover:opacity-70 transition-opacity">
+          <button 
+            onClick={() => setSearchOpen(true)} 
+            aria-label="Search" 
+            className="hover:opacity-70 transition-opacity"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
@@ -74,12 +100,20 @@ const Header = () => {
             </svg>
           </Link>
           <Link href="/cart" aria-label="Cart" className="relative hover:opacity-70 transition-opacity">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              className={`h-5 w-5 ${cartPulse ? 'cart-pulse' : ''}`} 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
             </svg>
-            <span className="absolute -top-2 -right-2 bg-black text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
-              2
-            </span>
+            {cartItemsCount > 0 && (
+              <span className={`absolute -top-2 -right-2 bg-black text-white text-xs w-5 h-5 rounded-full flex items-center justify-center ${cartPulse ? 'cart-pulse' : ''}`}>
+                {cartItemsCount}
+              </span>
+            )}
           </Link>
         </div>
       </div>
@@ -124,6 +158,18 @@ const Header = () => {
               >
                 About
               </Link>
+              <button 
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setSearchOpen(true);
+                }}
+                className="flex items-center py-2 uppercase text-sm tracking-wider"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                Search
+              </button>
             </nav>
           </div>
         </div>

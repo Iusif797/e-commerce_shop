@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -101,13 +102,33 @@ const Footer = () => {
       {/* Bottom Footer */}
       <div className="border-t border-gray-200 py-4 sm:py-6">
         <div className="container mx-auto px-6 sm:px-4 flex flex-col md:flex-row justify-between items-center text-xs sm:text-sm text-gray-500">
-          <div>© {currentYear} LUXE. All rights reserved.</div>
+          <div className="flex items-center gap-3">
+            <div className="relative w-8 h-8 rounded-full overflow-hidden">
+              <Image 
+                src="/images/products/avatar-footer.jpg" 
+                alt="Iusif Mamedov" 
+                fill 
+                className="object-cover"
+                sizes="32px"
+              />
+            </div>
+            <div className="flex gap-1">
+              <span>© {currentYear} LUXE. All rights reserved.</span>
+              <span className="hidden md:inline">|</span>
+              <span className="hidden md:inline">Developed by Iusif Mamedov</span>
+            </div>
+          </div>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mt-3 md:mt-0">
             <Link href="/privacy" className="hover:text-luxe-dark">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-luxe-dark">Terms of Service</Link>
             <Link href="/cookies" className="hover:text-luxe-dark">Cookie Policy</Link>
           </div>
         </div>
+      </div>
+      
+      {/* Developer Credit - Mobile */}
+      <div className="md:hidden border-t border-gray-200 py-3 text-center text-xs text-gray-500">
+        <div>Developed by Iusif Mamedov</div>
       </div>
     </footer>
   );
