@@ -7,7 +7,7 @@ export const products: Product[] = [
     subcategory: 'Men\'s Shoes',
     category: 'shoes',
     price: 395,
-    image: '/images/products/obuv.jpg',
+    image: '/images/products/obuv-iz-koricnevoi-kozi.jpg',
   },
   {
     id: '2',
@@ -15,7 +15,7 @@ export const products: Product[] = [
     subcategory: 'Women\'s Shoes',
     category: 'shoes',
     price: 280,
-    image: '/images/products/obuv.jpg',
+    image: '/images/products/shoes-style2.jpg',
   },
   {
     id: '3',
@@ -23,7 +23,7 @@ export const products: Product[] = [
     subcategory: 'Men\'s Headwear',
     category: 'caps',
     price: 120,
-    image: '/images/products/kepka.jpg',
+    image: '/images/products/shoes-style.jpg',
   },
   {
     id: '4',
@@ -31,7 +31,7 @@ export const products: Product[] = [
     subcategory: 'Women\'s Headwear',
     category: 'caps',
     price: 150,
-    image: '/images/products/kepka.jpg',
+    image: '/images/products/kepka-image2.jpg',
   },
   {
     id: '5',
@@ -55,7 +55,7 @@ export const products: Product[] = [
     subcategory: 'Men\'s Shoes',
     category: 'shoes',
     price: 330,
-    image: '/images/products/obuv.jpg',
+    image: '/images/products/muzskaa-obuv.jpg',
   },
   {
     id: '8',

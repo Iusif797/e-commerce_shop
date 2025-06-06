@@ -32,23 +32,23 @@ interface CartProviderProps {
 
 export const CartProvider = ({ children }: CartProviderProps) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [initialized, setInitialized] = useState(false);
 
   // Загрузка данных корзины из localStorage при инициализации
   useEffect(() => {
-    const savedCart = localStorage.getItem('cart');
-    if (savedCart) {
-      try {
-        setCartItems(JSON.parse(savedCart));
-      } catch (error) {
-        console.error('Failed to parse cart from localStorage:', error);
-      }
-    }
+    // Always start with an empty cart when the component mounts
+    setCartItems([]);
+    setInitialized(true);
+    
+    // The localStorage data will be ignored to ensure the cart always starts empty
   }, []);
 
   // Сохранение данных корзины в localStorage при изменении
   useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cartItems));
-  }, [cartItems]);
+    if (initialized) {
+      localStorage.setItem('cart', JSON.stringify(cartItems));
+    }
+  }, [cartItems, initialized]);
 
   // Добавление товара в корзину
   const addToCart = (product: Product) => {
